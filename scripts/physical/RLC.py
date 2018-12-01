@@ -12,7 +12,12 @@ RLC circuit with physical modelling
 """
 
 import bms
-from bms.physical.electrical import Generator, Resistor, ElectricalNode, Capacitor, Ground, Inductor
+from bms.physical.electrical.electricalnode import ElectricalNode
+from bms.physical.electrical.generator import Generator
+from bms.physical.electrical.resistor import Resistor
+from bms.physical.electrical.ground import Ground
+from bms.physical.electrical.capacitor import Capacitor
+from bms.physical.electrical.inductor import Inductor
 from bms.signals.functions import Sinus
 
 U = Sinus('Generator', 2, 5)  # Voltage of generator

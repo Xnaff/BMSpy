@@ -11,7 +11,10 @@ Battery and resistor circuit with physical modelling
 
 
 import bms
-from bms.physical.electrical import Battery, Resistor, ElectricalNode, Ground
+from bms.physical.electrical.electricalnode import ElectricalNode
+from bms.physical.electrical.battery import Battery
+from bms.physical.electrical.resistor import Resistor
+from bms.physical.electrical.ground import Ground
 from bms.signals.functions import Sinus
 
 # U=Sinus('Generator',2,5)# Voltage of generator

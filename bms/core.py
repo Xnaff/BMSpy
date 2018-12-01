@@ -629,7 +629,7 @@ class PhysicalSystem:
                 self.variables.append(variable)
         self._utd_ds = False
 
-    def GenerateDynamicSystem(self):
+    def generate_dynamic_system(self):
         #        from bms.blocks.continuous import WeightedSum
         G = nx.Graph()
 #        variables={}
@@ -730,7 +730,7 @@ class PhysicalSystem:
             if type(block_node) == tuple:
                 # Blocks writes an equation
                 model_blocks.extend(
-                    block_node[0].PartialDynamicSystem(block_node[1], variable))
+                    block_node[0].partial_dynamic_system(block_node[1], variable))
             else:
                 # Sum of incomming variables at nodes
                 # searching attached nodes
@@ -752,7 +752,7 @@ class PhysicalSystem:
 
 #                model_blocks.append(WeightedSum(variables,variable,[-1]*len(variables)))
                 model_blocks.extend(
-                    block_node.ConservativeLaw(variables, variable))
+                    block_node.conservative_law(variables, variable))
 
                 #                model_blocks.append(Gain(v1,variable,-1))
 
@@ -762,7 +762,7 @@ class PhysicalSystem:
 
     def _get_ds(self):
         if not self._utd_ds:
-            self._dynamic_system = self.GenerateDynamicSystem()
+            self._dynamic_system = self.generate_dynamic_system()
             self._utd_ds = True
         return self._dynamic_system
 

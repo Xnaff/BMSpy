@@ -11,7 +11,10 @@ Serial resistors circuit with physical modelling
 """
 
 import bms
-from bms.physical.electrical import Generator, Resistor, ElectricalNode, Capacitor, Ground
+from bms.physical.electrical.electricalnode import ElectricalNode
+from bms.physical.electrical.generator import Generator
+from bms.physical.electrical.resistor import Resistor
+from bms.physical.electrical.ground import Ground
 from bms.signals.functions import Sinus
 
 U = Sinus('Generator', 4, 5)  # Voltage of generator
