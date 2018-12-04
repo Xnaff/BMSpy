@@ -6,9 +6,9 @@ from bms.blocks.nonlinear import Saturation
 class Battery(PhysicalBlock):
     """
     Caution: still a bug, soc=0 doesn't imply i=0
-    : param Umax: Voltage when soc=1
-    : param Umin: Voltage when soc=0
-    : param C: capacity of battery in W.s
+    : param u_max: Voltage when soc=1
+    : param u_min: Voltage when soc=0
+    : param c: capacity of battery in W.s
 
     """
     def __init__(self, node1, node2, u_min, u_max, c, initial_soc, r, name='Battery'):

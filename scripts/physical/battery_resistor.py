@@ -18,26 +18,26 @@ from bms.physical.electrical.ground import Ground
 from bms.signals.functions import Sinus
 
 # U=Sinus('Generator',2,5)# Voltage of generator
-R = 10  # Resistance in Ohm
-Rint = 10
-Umax = 12.5
-Umin = 6
-C = 3600*10
+r = 10  # Resistance in Ohm
+r_int = 10
+u_max = 12.5
+u_min = 6
+c = 3600*10
 soc = 0.8
 
 n1 = ElectricalNode('1')
 n2 = ElectricalNode('2')
 # n3=ElectricalNode('3')
 
-Bat = Battery(n1, n2, Umin, Umax, C, soc, Rint)
-Res = Resistor(n2, n1, R)
+bat = Battery(n1, n2, u_min, u_max, c, soc, r_int)
+res = Resistor(n2, n1, r)
 G = Ground(n1)
 
-ps = bms.PhysicalSystem(5000, 50, [Bat, Res, G], [])
+ps = bms.PhysicalSystem(5000, 50, [bat, res, G], [])
 ds = ps.dynamic_system
 
 # ds._ResolutionOrder3()
 d = ds.Simulate()
-ds.PlotVariables([[n1.variable, n2.variable], [Bat.soc], [Bat.variables[0]]])
+ds.PlotVariables([[n1.variable, n2.variable], [bat.soc], [bat.variables[0]]])
 
 # Validation: analytical solutions
